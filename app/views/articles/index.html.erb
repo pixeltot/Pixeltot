@@ -4,12 +4,14 @@
 <% @articles.each do |article| %>
   <div class="row">
    <div class="small-12 medium-4 columns">
-      <h4 class="medium-text-right"><%= article.title %></h4>
+      <h4 class="medium-text-right">
+        <%= link_to article.title, article %>
+      </h4>
    </div>
    <div class="small-12 medium-8 columns"><%= article.body %><br>
-     <%= link_to 'Show', article %>
-     <%= link_to 'Edit', edit_article_path(article) %>
-     <%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %>
+     <%= link_to 'Show', article, class: "button" %>
+     <%= link_to 'Edit', edit_article_path(article), class: "button" %>
+     <%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' }, class: "button" %>
     </div>
   </div>
   <br>
