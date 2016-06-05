@@ -1,0 +1,20 @@
+<!-- <p id="notice"><%= notice %></p> -->
+
+
+<% @articles.each do |article| %>
+  <div class="row">
+   <div class="small-12 medium-4 columns">
+      <h4 class="medium-text-right"><%= article.title %></h4>
+   </div>
+   <div class="small-12 medium-8 columns"><%= article.body %><br>
+     <%= link_to 'Show', article %>
+     <%= link_to 'Edit', edit_article_path(article) %>
+     <%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+  </div>
+  <br>
+<% end %>
+
+<br>
+
+<%= link_to 'New Article', new_article_path %>

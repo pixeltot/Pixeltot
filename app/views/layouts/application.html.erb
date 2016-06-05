@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+  <!--
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  -->
+
+  <div class="callout large primary">
+    <div class="row column text-center">
+      <h1>Pixeltot</h1>
+    </div>
+  </div>
+
+  <div class="content row">
+    <!-- sidebar for medium screens and up-->
+    <div class="medium-3 columns sticky-container hide-for-small-only">
+      <div class="text-right sticky">
+        <%= render 'layouts/sidebar' %>
+      </div>
+    </div>
+
+    <!-- main content -->
+    <div class="medium-8 columns">
+      <%= yield %>
+    </div>
+
+    <!-- sidebar for mobile-->
+    <div class="medium-3 columns sticky-container show-for-small-only">
+      <div class="text-left">
+        <%= render 'layouts/sidebar' %>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
